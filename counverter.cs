@@ -9,7 +9,7 @@ namespace ConvertValute
             Console.WriteLine("Добро пожаловать на конвертер валют!");
             while (true)
             {
-                Console.Write("Введите валюту из которой будете переводить(rub): ");
+                Console.Write("Введите валюту из которой будете переводить(usd, eur, rub): ");
                 string val = Console.ReadLine();
                 Console.Write("Введите валюту в которую будете переводить(usd, eur, rub): ");
                 string val2 = Console.ReadLine();
@@ -33,6 +33,36 @@ namespace ConvertValute
                                 break;
                         }
 
+                    }
+                    else if (val.Equals("eur"))
+                    {
+                        switch (val2)
+                        {
+                            case "usd":
+                                result = chisl * 1.18;
+                                break;
+                            case "rub":
+                                result = chisl * 97;
+                                break;
+                            case "eur":
+                                result = chisl * 1;
+                                break;
+                        }
+                    }
+                    else if (val.Equals("usd"))
+                    {
+                        switch (val2)
+                        {
+                            case "eur":
+                                result = chisl / 1.18;
+                                break;
+                            case "rub":
+                                result = chisl * 83;
+                                break;
+                            case "usd":
+                                result = chisl * 1;
+                                break;
+                        }
                     }
                     Console.WriteLine("Результат конвертации: " + result);
                 }
